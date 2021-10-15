@@ -33,6 +33,7 @@ export default {
         this.$router.replace({name: "secret"})
       } catch (err) {
         console.log(err)
+        this.error = err;
       }
     }
   }
