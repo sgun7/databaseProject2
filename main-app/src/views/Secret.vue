@@ -1,8 +1,8 @@
 <template>
   <div>
     <ul v-for="post in posts" v-bind:key="post.id">
-      <li>{{ post.title }}</li>
-      <p>{{ post.body }}</p>
+      <li>{{ post.country }}</li>
+      <p>{{ post.date }}</p>
     </ul>
   </div>
 </template>
@@ -18,7 +18,7 @@ export default {
   methods: {
     async getData() {
       try {
-        let response = await fetch("http://jsonplaceholder.typicode.com/posts");
+        let response = await fetch("https://5eab-2600-1700-5960-1560-89d4-9eb9-1c0c-49.ngrok.io/data");
         this.posts = await response.json();
       } catch (error) {
         console.log(error);
