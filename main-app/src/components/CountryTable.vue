@@ -11,6 +11,22 @@
       <td>{{ post.date }}</td>
     </tr>
   </div> -->
+    <table class="w-75 p-3 table table-striped table-dark position-absolute top-50 start-50 translate-middle">
+        <thead>
+            <tr>
+                <th scope="col">Country name</th>
+                <th scope="col">Date</th>
+                <th scope="col">Cases</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="post in fakepost" v-bind:key="post.id">
+                <td>{{ post.country }}</td>
+                <td>{{ post.date }}</td>
+                <td>{{ post.cases}}</td>
+            </tr>
+        </tbody>
+    </table>
   <!-- <table id="firstTable">
       <thead>
           <th>Country name</th>
@@ -18,7 +34,6 @@
           <th>Cases</th>
       </thead>
   </table> -->
-  <button type="button" class="btn bton-link">Dark</button>
 </template>
 
 <script>
