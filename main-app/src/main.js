@@ -6,9 +6,13 @@ import axios from "axios"
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
+import CountryTable from './components/CountryTable'
+import "bootstrap/dist/css/bootstrap.min.css"
+
 
 Vue.prototype.$axios = axios;
 Vue.config.productionTip = false
+Vue.component('country-table', CountryTable)
 
 const firebaseConfig = {
   apiKey: "AIzaSyD19iovkvYgAIdbRRmu3zCkM3DkQZqhjfo",
