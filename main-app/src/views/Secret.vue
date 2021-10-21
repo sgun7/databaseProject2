@@ -1,6 +1,6 @@
 <template>
   <div>
-    <country-table></country-table>
+    <admin-table></admin-table>
   </div>
 </template>
 

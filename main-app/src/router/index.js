@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import Secret from '../views/Secret.vue'
 import Register from '../views/Register.vue'
+import Data from '../views/Data.vue'
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 
@@ -39,6 +40,11 @@ const routes = [
     component: Secret,
     meta: {requiresAuth: true} //Requires the sign in to access this webpage
   },
+  {
+    path: '/data',
+    name: 'data',
+    component: Data
+  }
 ]
 
 const router = new VueRouter({

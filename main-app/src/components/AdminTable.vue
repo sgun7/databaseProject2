@@ -17,6 +17,7 @@
                 <th scope="col">Country name</th>
                 <th scope="col">Date</th>
                 <th scope="col">Cases</th>
+                <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -24,6 +25,10 @@
                 <td>{{ post.country }}</td>
                 <td>{{ post.date }}</td>
                 <td>{{ post.cases}}</td>
+                <td>
+                  <button type="button" class="btn btn-outline-danger btn-space" @click="removeUser(post.country)">Delete</button>
+                  <button type="button" class="btn btn-outline-warning">Edit</button>
+                </td>
             </tr>
         </tbody>
     </table>
@@ -34,7 +39,6 @@
           <th>Cases</th>
       </thead>
   </table> -->
-  
 </template>
 
 <script>
@@ -84,6 +88,10 @@ export default {
         console.log(error);
       }
     },
+    removeUser(id)
+    {
+      this.rows.remove(id);
+    }
   },
 
   created() {
@@ -91,3 +99,8 @@ export default {
   },
 };
 </script>
+<style scoped>
+.btn-space {
+    margin-right: 10px;
+}
+</style>
