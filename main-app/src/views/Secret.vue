@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div data-app>
     <admin-table></admin-table>
   </div>
 </template>

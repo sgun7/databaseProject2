@@ -1,4 +1,5 @@
 <template>
+<v-app>
   <div>
     <div v-if="error" class="error">{{error.message}}</div>
     <form @submit.prevent="pressed">
@@ -9,9 +10,10 @@
         <div>
           <input type="password" v-model="password" placeholder="password">
         </div>
-        <button type="submit">Register</button>
+        <v-btn type="submit" elevation="7">Submit</v-btn>
     </form>
   </div>
+  </v-app>
 </template>
 <script>
 import firebase from 'firebase/compat/app';

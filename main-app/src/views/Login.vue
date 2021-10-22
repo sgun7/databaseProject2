@@ -8,7 +8,7 @@
         <div class="password">
           <input type="password" placeholder="password" v-model="password" />
       </div>
-      <button>Login</button>
+      <v-btn type="submit" elevation="7">Login</v-btn>
     </form>
     <div class="error" v-if="error">{{error.message}}</div>
   </div>
@@ -40,7 +40,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 div {
   color: inherit;
 }
