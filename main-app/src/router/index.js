@@ -4,6 +4,8 @@ import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import Secret from '../views/Secret.vue'
 import Register from '../views/Register.vue'
+import Data from '../views/Data.vue'
+import MoreInfo from '../views/MoreInfo'
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 
@@ -13,7 +15,8 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    props: true
   },
   {
     path: '/about',
@@ -21,24 +24,41 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+    props: true
+
   },
   {
     path: '/login',
     name: 'login',
-    component: Login
+    component: Login,
+    props: true
   },
   {
     path: '/register',
     name: 'register',
-    component: Register
+    component: Register,
+    props: true
   },
   {
     path: '/secret',
     name: 'secret',
     component: Secret,
-    meta: {requiresAuth: true} //Requires the sign in to access this webpage
+    meta: {requiresAuth: true},//Requires the sign in to access this webpage,
+    props: true
   },
+  {
+    path: '/data',
+    name: 'data',
+    component: Data,
+    props: true
+  },
+  {
+    path: '/moreinfo',
+    name: 'moreinfo',
+    component: MoreInfo,
+    props: true
+  }
 ]
 
 const router = new VueRouter({

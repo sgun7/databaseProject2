@@ -1,5 +1,9 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+<div>
+  <b-button disabled size="lg" variant="primary">Disabled</b-button>
+  <b-button disabled size="lg">Also Disabled</b-button>
+</div>
 </template>
+<script>
+
+</script>
