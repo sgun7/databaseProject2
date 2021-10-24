@@ -8,13 +8,19 @@ import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import CountryTable from './components/CountryTable'
 import AdminTable from './components/AdminTable.vue'
+import Header from './components/Header.vue'
+import CarouselCountries from './components/CarouselCountries.vue'
+import MainTable from './components/MainTable'
+
 import "bootstrap/dist/css/bootstrap.min.css"
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import vuetify from './plugins/vuetify'
+import BootstrapVue from 'bootstrap-vue'
 
+Vue.use(BootstrapVue)
 library.add(faUserSecret)
 library.add(faSpinner)
 
@@ -22,7 +28,10 @@ Vue.prototype.$axios = axios;
 Vue.config.productionTip = false
 Vue.component('country-table', CountryTable)
 Vue.component('admin-table', AdminTable)
+Vue.component('header-comp', Header)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
+Vue.component('carousel-countries', CarouselCountries)
+Vue.component('main-table', MainTable)
 
 const firebaseConfig = {
   apiKey: "AIzaSyD19iovkvYgAIdbRRmu3zCkM3DkQZqhjfo",

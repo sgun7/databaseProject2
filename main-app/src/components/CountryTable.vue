@@ -44,22 +44,22 @@ export default {
       posts: [],
       fakepost: [{
           country: "America",
-          date: "12/12/12",
+          date: "12/02/12",
           cases: "120000"
         }, 
         {
           country: "Uganda",
-          date: "12/12/12",
+          date: "12/03/12",
           cases: "120000"
       },
       {
           country: "France",
-          date: "12/12/12",
+          date: "12/04/12",
           cases: "120000"
       },
       {
           country: "Sri Lanka",
-          date: "12/12/12",
+          date: "12/03/12",
           cases: "120000"
       },
       {
@@ -69,7 +69,7 @@ export default {
       },
       {
           country: "Mexico",
-          date: "12/12/12",
+          date: "12/09/12",
           cases: "120000"
       }]
     };
@@ -78,7 +78,7 @@ export default {
   methods: {
     async getData() {
       try {
-        let response = await fetch("http://7d2b-2600-1700-5960-1560-e140-d3b5-832a-5c88.ngrok.io/data");
+        let response = await fetch("http://ec5c-2600-1700-5960-1560-4975-d7a0-dce7-f56c.ngrok.io/data");
         this.posts = await response.json();
       } catch (error) {
         console.log(error);

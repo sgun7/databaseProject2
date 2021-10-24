@@ -1,3 +1,3 @@
 <template>
-    <div><country-table></country-table></div>
+    <div><carousel-countries></carousel-countries></div>
 </template>
