@@ -1,19 +1,37 @@
 <template>
-    <!-- <div><h1>{{items}}</h1></div> -->
-  <v-simple-table dark>
-  <v-data-table
-    :headers="headers"
-    :items="chosenCountries"
-    :items-per-page="5"
-    class="elevation-1"
-  ></v-data-table>
-  </v-simple-table>
+  <v-card dark>
+    <v-card-title>
+      Country Specific Data
+      <v-spacer></v-spacer>
+      <v-text-field
+        v-model="search"
+        append-icon="mdi-magnify"
+        label="Search"
+        single-line
+        hide-details
+      ></v-text-field>
+    </v-card-title>
+    <v-simple-table dark>
+    <v-data-table
+        :headers="headers"
+        :items="chosenCountries"
+        :items-per-page="5"
+        :search="search"
+        class="elevation-1"
+        :sort-by.sync="sortBy"
+        :sort-desc.sync="sortDesc"
+    ></v-data-table>
+    </v-simple-table>
+  </v-card>
 </template>
 <script>
 export default{
     props:['items'],
         data () {
       return {
+        search: '',
+        sortBy: 'date',
+        sortDesc: false,
         headers: [
           {
             text: 'Countries',
