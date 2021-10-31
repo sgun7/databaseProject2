@@ -10,12 +10,16 @@
       <router-link to="/data">Data</router-link> |
     </div>
     <router-view/>
+    <div style="height:425px;"></div>
+    <bottom-footer></bottom-footer>
   </div>
 </template>
 
 <script>
 import TopHeader from "./components/Top-Header.vue"
+import BottomFooter from "./components/Bottom-Footer.vue"
+
 export default ({
-  components: {'top-header': TopHeader}
+  components: {'top-header': TopHeader, 'bottom-footer': BottomFooter}
 })
 </script>
