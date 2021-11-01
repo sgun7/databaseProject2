@@ -20,7 +20,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr v-for="post in fakepost" v-bind:key="post.id">
+            <tr v-for="post in posts" v-bind:key="post.id">
                 <td>{{ post.country }}</td>
                 <td>{{ post.date }}</td>
                 <td>{{ post.cases}}</td>
@@ -78,7 +78,7 @@ export default {
   methods: {
     async getData() {
       try {
-        let response = await fetch("http://ec5c-2600-1700-5960-1560-4975-d7a0-dce7-f56c.ngrok.io/data");
+        let response = await fetch("http://2590-2600-1700-5960-1560-145f-c4a5-a798-a466.ngrok.io/data");
         this.posts = await response.json();
       } catch (error) {
         console.log(error);
