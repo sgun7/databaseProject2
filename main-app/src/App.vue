@@ -10,8 +10,7 @@
       <router-link to="/data">Data</router-link> |
     </div>
     <router-view/>
-    <div style="height:425px;"></div>
-    <bottom-footer></bottom-footer>
+    <bottom-footer style="position:fixed; bottom:0;"></bottom-footer>
   </div>
 </template>
 
