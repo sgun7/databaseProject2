@@ -129,7 +129,7 @@
       },
       async getData2() {
       try {
-        let response = await fetch("http://5928-2600-1700-5960-1560-91a0-92fc-f5e-7b69.ngrok.io/data");  //Solution is awaiting getValueFunction()
+        let response = await fetch(this.$api_url);  //Solution is awaiting getValueFunction()
         this.posts = await response.json();
         await this.getNewValue();
       } catch (error) {

@@ -113,7 +113,7 @@ export default{
     methods:{
       async getData2() {
       try {
-        let response = await fetch("http://5928-2600-1700-5960-1560-91a0-92fc-f5e-7b69.ngrok.io/data");
+        let response = await fetch(this.$api_url);
         this.posts = await response.json();
         await this.getSpecificCountry();
       } catch (error) {
