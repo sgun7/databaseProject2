@@ -19,13 +19,13 @@
       return {
         items: [
           {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+            src: 'https://picsum.photos/id/119/3264/2176',
           },
           {
             src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
           },
           {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
+            src: 'https://picsum.photos/id/180/3264/2176',
           },
           {
             src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',

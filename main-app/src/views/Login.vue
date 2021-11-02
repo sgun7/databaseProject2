@@ -1,5 +1,6 @@
 <template>
   <div>
+    <top-header></top-header>
     Login
     <form @submit.prevent="pressed">
         <div>
@@ -16,8 +17,10 @@
 <script>
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
+import TopHeader from "../components/Top-Header.vue"
 
 export default {
+  components: {'top-header': TopHeader},
   data() {
         return {
             email: "",
@@ -30,7 +33,7 @@ export default {
       try {
         const val = await firebase.auth().signInWithEmailAndPassword(this.email,this.password);
         console.log(val);
-        this.$router.replace({name: "secret"})
+        this.$router.replace({name: "data"})
       } catch (err) {
         console.log(err)
         this.error = err;

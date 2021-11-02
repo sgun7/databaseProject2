@@ -51,6 +51,7 @@ const routes = [
     path: '/data',
     name: 'data',
     component: Data,
+    meta: {requiresAuth: true},//Requires the sign in to access this webpage,
     props: true
   },
   {
