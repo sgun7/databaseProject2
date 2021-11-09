@@ -26,14 +26,17 @@
     </div>
   </nav>
     <router-view/>
+    <bottom-footer style="position:fixed; bottom:0;"></bottom-footer>
   </div>
 </template>
 
 <script>
 // import TopHeader from "./components/Top-Header.vue"
-// export default ({
-//   components: {'top-header': TopHeader}
-// })
+import BottomFooter from "./components/Bottom-Footer.vue"
+
+export default ({
+  components: {'bottom-footer': BottomFooter}
+})
 </script>
 <style scoped>
 
