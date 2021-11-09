@@ -1,6 +1,6 @@
 <template>
     <div id="wrapper">
-        <p>
+        <p style="color:white">
             <b>Group 5: Code Hunters</b><br>
                 Luke Rogers - Captain<br>
                 Stephan Gunawardana<br>
@@ -17,5 +17,7 @@ export default {
   margin: 0;
   padding: 0px 0px;
   width: 100%;
+  background-color: #212529;
 }
+
 </style>
