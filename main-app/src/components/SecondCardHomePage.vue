@@ -4,6 +4,7 @@
       <v-card
         class="mx-auto"
         max-width="344"
+        dark
       >
         <v-img src="https://cdn.vuetifyjs.com/images/cards/forest-art.jpg"></v-img>
 
