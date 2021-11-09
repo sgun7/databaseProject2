@@ -31,11 +31,11 @@
 </template>
 
 <script>
-import TopHeader from "./components/Top-Header.vue"
+// import TopHeader from "./components/Top-Header.vue"
 import BottomFooter from "./components/Bottom-Footer.vue"
 
 export default ({
-  components: {'top-header': TopHeader, 'bottom-footer': BottomFooter}
+  components: {'bottom-footer': BottomFooter}
 })
 </script>
 <style scoped>
