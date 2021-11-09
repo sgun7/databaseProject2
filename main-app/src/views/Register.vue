@@ -26,7 +26,7 @@ export default ({
           try {
             const user = await firebase.auth().createUserWithEmailAndPassword(this.email, this.password);
             console.log(user);
-            this.$router.replace({name: "secret"});  //Can now access this page
+            this.$router.replace({name: "data"});  //Can now access this page
           } catch (err) { 
               console.log(err)
           }

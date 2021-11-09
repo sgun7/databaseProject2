@@ -18,10 +18,9 @@
             <v-btn color="error" dark large @click="onClickHandler(item.country)">More Info</v-btn>
           </div>
        </v-row>
-    ></v-carousel-item>
+    </v-carousel-item>
   </v-carousel>
-  <!-- <v-btn color="error" dark large @click="onClickHandler()">More Info</v-btn>
-  <main-table v-bind:msg="message"></main-table> -->
+  <!-- <main-table v-bind:msg="message"></main-table> -->
 </div>
 </template>
 
@@ -30,6 +29,7 @@
   export default {
     data () {
       return {
+        posts: [],
         countries: [
         {
           country: "America",
@@ -98,15 +98,13 @@
       }
 
     },
-    // components: {
-    //     'main-table': MainTable
-    // },
     methods: {
       getNewValue(){
 
           let obj = {};
 
-          let data = this.countries;
+          let data = this.posts;
+          console.log(data);
 
           data.forEach(d => {
             obj[d.country] = obj[d.country] || 0;
@@ -120,22 +118,30 @@
           this.noDuplicates = aggregatedData;     
       },
       onClickHandler (country) {
-         //console.log(country);
          this.message = country;
-         //this.$emit('chosen-country', country)    
+         this.$emit('chosen-country', country)    
          this.$router.push({
           name: 'moreinfo',
           params: {
             items: this.message
           }
         });   
+      },
+      async getData2() {
+      try {
+        let response = await fetch(this.$api_url);  //Solution is awaiting getValueFunction()
+        this.posts = await response.json();
+        await this.getNewValue();
+      } catch (error) {
+        console.log(error);
       }
+    },
 
     },
     created()
     {
-      this.getNewValue();
-    }
+      this.getData2();
+    },
   }
 </script>
 <style scoped>

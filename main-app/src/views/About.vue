@@ -1,7 +1,6 @@
 <template>
 <div>
-  <b-button disabled size="lg" variant="primary">Disabled</b-button>
-  <b-button disabled size="lg">Also Disabled</b-button>
+  <h1>About Page</h1>
 </div>
 </template>
 <script>

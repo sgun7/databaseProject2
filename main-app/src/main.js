@@ -24,6 +24,7 @@ Vue.use(BootstrapVue)
 library.add(faUserSecret)
 library.add(faSpinner)
 
+Vue.prototype.$api_url = "https://jsonplaceholder.typicode.com/";
 Vue.prototype.$axios = axios;
 Vue.config.productionTip = false
 Vue.component('country-table', CountryTable)
