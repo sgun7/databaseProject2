@@ -11,6 +11,8 @@ import AdminTable from './components/AdminTable.vue'
 import Header from './components/Header.vue'
 import CarouselCountries from './components/CarouselCountries.vue'
 import MainTable from './components/MainTable'
+import FirstCardHomePage from './components/FirstCardHomePage.vue'
+import SecondCardHomePage from './components/SecondCardHomePage.vue'
 
 import "bootstrap/dist/css/bootstrap.min.css"
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -33,6 +35,8 @@ Vue.component('header-comp', Header)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.component('carousel-countries', CarouselCountries)
 Vue.component('main-table', MainTable)
+Vue.component('first-card-home', FirstCardHomePage)
+Vue.component('second-card-home', SecondCardHomePage)
 
 const firebaseConfig = {
   apiKey: "AIzaSyD19iovkvYgAIdbRRmu3zCkM3DkQZqhjfo",
