@@ -11,6 +11,9 @@ import AdminTable from './components/AdminTable.vue'
 import Header from './components/Header.vue'
 import CarouselCountries from './components/CarouselCountries.vue'
 import MainTable from './components/MainTable'
+import FirstCardHomePage from './components/FirstCardHomePage.vue'
+import SecondCardHomePage from './components/SecondCardHomePage.vue'
+import FirstGraph from './components/FirstGraph.vue'
 
 import "bootstrap/dist/css/bootstrap.min.css"
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -20,11 +23,12 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import vuetify from './plugins/vuetify'
 import BootstrapVue from 'bootstrap-vue'
 
+
 Vue.use(BootstrapVue)
 library.add(faUserSecret)
 library.add(faSpinner)
 
-Vue.prototype.$api_url = "https://jsonplaceholder.typicode.com/";
+Vue.prototype.$api_url = "https://87f0-2603-6010-960b-4600-9d72-5ff8-eff9-e45b.ngrok.io/data";
 Vue.prototype.$axios = axios;
 Vue.config.productionTip = false
 Vue.component('country-table', CountryTable)
@@ -33,6 +37,9 @@ Vue.component('header-comp', Header)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.component('carousel-countries', CarouselCountries)
 Vue.component('main-table', MainTable)
+Vue.component('first-card-home', FirstCardHomePage)
+Vue.component('second-card-home', SecondCardHomePage)
+Vue.component('first-graph', FirstGraph)
 
 const firebaseConfig = {
   apiKey: "AIzaSyD19iovkvYgAIdbRRmu3zCkM3DkQZqhjfo",

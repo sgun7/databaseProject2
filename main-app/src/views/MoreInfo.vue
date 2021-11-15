@@ -1,4 +1,5 @@
 <template>
+<div>
   <v-card dark>
     <v-card-title>
       Country Specific Data
@@ -20,13 +21,46 @@
         class="elevation-1"
         :sort-by.sync="sortBy"
         :sort-desc.sync="sortDesc"
-    ></v-data-table>
+    >
+    <template v-slot:item="row">
+        <tr>
+          <td>{{row.item.country}}</td>
+          <td>{{row.item.date}}</td>
+          <td>{{row.item.cases}}</td>
+          <span v-if="loggedIn">
+            <td>
+                  <v-btn class="mx-2" fab dark small color="pink" @click="onButtonClickDelete(row.item)">
+                      <v-icon dark>mdi-delete</v-icon>
+                  </v-btn>
+            </td>
+          </span>
+        </tr>
+      </template>
+    </v-data-table>
     </v-simple-table>
   </v-card>
 
+  <div class="container">
+    <div class="row mt-5" v-if="arrPositive.length > 0">
+      <div class="col">
+        <h2>Positive</h2>
+        <first-graph :chartData="arrPositive" :options="chartOptions" :label="Positive" :chartColors="positiveChartColors"></first-graph>
+      </div>
+    </div>
+  </div>
+</div>
 </template>
 <script>
+import axios from 'axios'
+import moment from 'moment'
+import FirstGraph from '../components/FirstGraph.vue'
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+
 export default{
+    components: {
+      FirstGraph,
+    },
     props:['items'],
         data () {
       return {
@@ -108,6 +142,19 @@ export default{
       }
       
       ],
+      arrPositive: [],
+      chartOptions: {
+        responsive: true,
+        maintainAspectRation: false,
+      },
+      positiveChartColors: {
+          borderColor: "#077187",
+          pointerBorderColor: "#0E1428",
+          pointBackgroundColor: "#AFD6AC",
+          backgroundColor: "#74A57F"
+
+      },
+      loggedIn: false
       }
     },
     methods:{
@@ -116,6 +163,18 @@ export default{
         let response = await fetch(this.$api_url);
         this.posts = await response.json();
         await this.getSpecificCountry();
+        const { data } = await axios.get("https://api.covidtracking.com/v1/us/daily.json")
+
+        data.forEach(d => {
+          const date = moment(d.date, "YYYYMMDD").format("MM/DD");
+
+          const {
+              positive,
+          } = d
+
+          this.arrPositive.push({date, total: positive});
+        })
+      
       } catch (error) {
         console.log(error);
       }
@@ -127,6 +186,10 @@ export default{
             console.log("running")
             this.chosenCountries = result;
         },
+        onButtonClickDelete(item)
+        {
+          console.log("Clicked item " + item.cases) 
+        }
         // search(arr, s){
         //     var matches = [], i, key;
 
@@ -141,6 +204,20 @@ export default{
     created()
     {
       this.getData2();
+      firebase.auth().onAuthStateChanged(user => {
+            if(user){
+                this.loggedIn = true;
+            }
+            else{
+                this.loggedIn = false;
+            }
+        }) 
     }
 }
 </script>
+
+<style scoped>
+.container {
+  width: 500px;
+}
+</style>>
