@@ -44,14 +44,14 @@ const routes = [
     path: '/secret',
     name: 'secret',
     component: Secret,
-    meta: {requiresAuth: true},//Requires the sign in to access this webpage,
+    // meta: {requiresAuth: true},//Requires the sign in to access this webpage,
     props: true
   },
   {
     path: '/data',
     name: 'data',
     component: Data,
-    meta: {requiresAuth: true},//Requires the sign in to access this webpage,
+    // meta: {requiresAuth: true},//Requires the sign in to access this webpage,
     props: true
   },
   {
