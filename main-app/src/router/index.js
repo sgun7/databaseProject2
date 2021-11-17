@@ -7,6 +7,7 @@ import Register from '../views/Register.vue'
 import Data from '../views/Data.vue'
 import MoreInfo from '../views/MoreInfo'
 import firebase from 'firebase/compat/app';
+import Admin from '../views/Admin.vue';
 import 'firebase/compat/auth';
 
 Vue.use(VueRouter)
@@ -59,7 +60,14 @@ const routes = [
     name: 'moreinfo',
     component: MoreInfo,
     props: true
-  }
+  },
+  {
+    path: '/admin',
+    name: 'admin',
+    component: Admin,
+    meta: {requiresAuth: true},//Requires the sign in to access this webpage,
+    props: true 
+  },
 ]
 
 const router = new VueRouter({

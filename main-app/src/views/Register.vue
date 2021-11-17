@@ -18,7 +18,6 @@
 <script>
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
-
 export default ({
     methods: {
         async pressed()
