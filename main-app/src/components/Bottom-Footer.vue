@@ -2,7 +2,7 @@
     <div id="wrapper">
         <p style="color:white">
             <b>Group 5: Code Hunters</b><br>
-                Luke Rogers - Captain<br>
+                Luke Rogers<br>
                 Stephan Gunawardana<br>
                 Nikhil Khandelwal
         </p>

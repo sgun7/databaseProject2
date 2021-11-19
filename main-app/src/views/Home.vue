@@ -18,10 +18,15 @@
   </v-carousel>
   </div>
   <div class="cards">
-    <v-layout row wrap>
-      <first-card-home></first-card-home>
-      <second-card-home></second-card-home>
-    </v-layout>
+    <v-container fill-height fluid>
+      <v-row align="center" justify="center">
+        <first-card-home></first-card-home>
+      </v-row>
+      <v-row><br/></v-row>
+      <v-row align="center" justify="center">
+        <second-card-home></second-card-home>
+      </v-row>
+    </v-container>
   </div>
 </div>
 </template>
@@ -32,16 +37,13 @@
       return {
         items: [
           {
-            src: 'https://picsum.photos/id/119/3264/2176',
+            src: 'https://dph.georgia.gov/sites/dph.georgia.gov/files/styles/3_2_2106px_x_1404px/public/2021-04/GettyImages-1210455332.jpg?h=32b23554&itok=hXoJsD8u',
           },
           {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+            src: 'https://cloudfront-us-east-2.images.arcpublishing.com/reuters/JVIS5YJXHVI6NEMZLLB3WKMZ54.jpg',
           },
           {
-            src: 'https://picsum.photos/id/180/3264/2176',
-          },
-          {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+            src: 'https://scitechdaily.com/images/COVID-19-Coronavirus-Map-March-19.jpg',
           },
         ],
       }

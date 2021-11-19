@@ -3,17 +3,17 @@
     <template v-slot:default="{ hover }">
       <v-card
         class="mx-auto"
-        max-width="344"
+        max-width="360"
         dark
         
       >
-        <v-img src="https://cdn.vuetifyjs.com/images/cards/forest-art.jpg"></v-img>
+        <!-- <v-img src="https://cdn.vuetifyjs.com/images/cards/forest-art.jpg"></v-img> -->
+        <v-img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSi5LUocbcZxIF3m7azbaW7WY14rYCyJi4Yg&usqp=CAU"></v-img>
 
         <v-card-text>
           <h2 class="text-h6 primary--text">
-            Who we are
+            Check out the team!
           </h2>
-          <h4>Check out our about page!</h4>
         </v-card-text>
 
         <v-fade-transition>
@@ -22,7 +22,7 @@
             absolute
             color="#036358"
           >
-            <v-btn @click="InfoPage">See more info</v-btn>
+            <v-btn @click="InfoPage">About Page</v-btn>
           </v-overlay>
         </v-fade-transition>
       </v-card>
