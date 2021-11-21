@@ -163,16 +163,18 @@ export default{
         let response = await fetch(this.$api_url);
         this.posts = await response.json();
         await this.getSpecificCountry();
-        const { data } = await axios.get("https://api.covidtracking.com/v1/us/daily.json")
+        const { data } = await axios.get(this.$api_url)
+        // const {data} = this.countries;
+        console.log("main data", data);
 
         data.forEach(d => {
-          const date = moment(d.date, "YYYYMMDD").format("MM/DD");
+          const date = moment(d.date, "M/DD/YY").format("MM/DD");
 
           const {
-              positive,
+              cases,
           } = d
 
-          this.arrPositive.push({date, total: positive});
+          this.arrPositive.push({date, total: cases});
         })
       
       } catch (error) {

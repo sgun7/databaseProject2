@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="wholepage">
 
 <div class="container">
   <div class="row">          
@@ -8,107 +8,50 @@
             <input type="text" name="" v-model="profile.name" placeholder="Full name" class="form-control">
         </div>
       </div>
-
-        <div class="col-md-6">
+      <div class="col-md-4">
           <div class="form-group">
-              <input type="text"  v-model="profile.phone" placeholder="Phone" class="form-control">
+              <input type="submit" @click="updateProfile" value="Save Changes" class="btn btn-primary w-100">
           </div>
-        </div>
-
-        <div class="col-md-12">
-            <div class="form-group">
-                <input type="text"  v-model="profile.address" placeholder="Address" class="form-control">
-              </div>
-        </div>
-
-          <div class="col-md-8">
-                <div class="form-group">
-                    <input type="text"  v-model="profile.postCode" placeholder="Postcode" class="form-control">
-                </div>
-          </div>
-
-            <div class="col-md-4">
-                <div class="form-group">
-                    <input type="submit" @click="updateProfile" value="Save Changes" class="btn btn-primary w-100">
-                </div>
-            </div>
+       </div>
   </div>
 </div>
 
 <div class="card">
   <v-card
-    :loading="loading"
-    class="mx-auto my-12"
-    max-width="374"
+    class="mt-n12 mx-auto"
   >
-    <template slot="progress">
+    <!-- <template slot="progress">
       <v-progress-linear
         color="deep-purple"
         height="10"
         indeterminate
       ></v-progress-linear>
-    </template>
+    </template> -->
 
     <v-img
       height="250"
-      src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
+      :src="this.profile.image"
     ></v-img>
 
     <v-card-title>Full Name: {{this.profile.name}}</v-card-title>
-
+    <v-card-title>Email: {{this.profile.email}}  </v-card-title>
+    <v-divider></v-divider>
+    <v-card-title>Account Created at: {{this.profile.createdAt}}  </v-card-title>
+    <!-- <v-card-title>Last login time: {{this.profile.loggedAt}}  </v-card-title> -->
+    
     <v-card-text>
-      <v-row
-        align="center"
-        class="mx-0"
-      >
-        <v-rating
-          :value="4.5"
-          color="amber"
-          dense
-          half-increments
-          readonly
-          size="14"
-        ></v-rating>
-
-        <div class="grey--text ms-4">
-          4.5 (413)
-        </div>
-      </v-row>
-
-      <div class="my-4 text-subtitle-1">
-        $ • Italian, Cafe
-      </div>
-
-      <div>Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.</div>
     </v-card-text>
 
-    <v-divider class="mx-4"></v-divider>
 
-    <v-card-title>Tonight's availability</v-card-title>
 
-    <v-card-text>
-      <v-chip-group
-        active-class="deep-purple accent-4 white--text"
-        column
-      >
-        <v-chip>5:30PM</v-chip>
-
-        <v-chip>7:30PM</v-chip>
-
-        <v-chip>8:00PM</v-chip>
-
-        <v-chip>9:00PM</v-chip>
-      </v-chip-group>
-    </v-card-text>
-
-    <v-card-actions>
+    <!-- <v-card-actions>
       <v-btn
         color="deep-purple lighten-2"
         text
       >
         Reserve
       </v-btn>
-    </v-card-actions>
+    </v-card-actions> -->
   </v-card>
 </div>
  
@@ -124,10 +67,14 @@ export default ({
       return {
           userName:"",
           profile: {
-          name:null,
-          phone:null,
-          address:null,
-          postcode:null
+            name:null,
+            phone:null,
+            address:null,
+            postcode:null,
+            email: null,
+            createdAt: null,
+            loggedAt: null,
+            image: ''
         },
       }
     },
@@ -141,7 +88,7 @@ export default ({
 
         const user = auth.currentUser;
         updateProfile(auth.currentUser, {
-        displayName: this.profile.name, photoURL: "https://example.com/jane-q-user/profile.jpg"
+        displayName: this.profile.name, photoURL: "https://cdn.vuetifyjs.com/images/cards/cooking.png"
         }).then(() => {
         console.log("updated")
         }).catch((error) => {
@@ -157,6 +104,12 @@ export default ({
         const user = auth.currentUser;
 
         this.profile.name = user.displayName;
+        this.profile.email = user.email;
+        this.profile.createdAt = user.metadata.creationTime
+        this.profile.loggedAt = user.metadata.lastSignInTime
+        this.profile.image = user.photoURL
+        console.log(this.profile.image)
+
     },
     async mainPress()
     {
@@ -175,3 +128,8 @@ export default ({
 })
 
 </script>
+<style scoped>
+/* .whole-page {
+  padding-bottom: 200px;
+} */
+</style>
