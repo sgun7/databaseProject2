@@ -24,7 +24,7 @@
         <router-link to="/data" style="text-decoration: none; color: white;">Data</router-link> | | | |
         <router-link to="/moreinfo" style="text-decoration: none; color: white;">More Info</router-link> | | | |
         <span v-if="loggedIn">
-          <router-link to="/admin" style="text-decoration: none; color: white;">Admin Page</router-link> | | | |
+          <router-link to="/admin" style="text-decoration: none; color: white;">User Page</router-link> | | | |
         </span>
       </div>
     </div>

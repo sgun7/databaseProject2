@@ -8,17 +8,21 @@
             <input type="text" name="" v-model="profile.name" placeholder="Full name" class="form-control">
         </div>
       </div>
+      <div>
+          <input type="text" name=""  v-model="profile.image" placeholder="Profile Image URL" class="form-control">
+      </div>
       <div class="col-md-4">
           <div class="form-group">
               <input type="submit" @click="updateProfile" value="Save Changes" class="btn btn-primary w-100">
           </div>
        </div>
+       
   </div>
 </div>
-
 <div class="card">
   <v-card
     class="mt-n12 mx-auto"
+    dark
   >
     <!-- <template slot="progress">
       <v-progress-linear
@@ -38,9 +42,10 @@
     <v-divider></v-divider>
     <v-card-title>Account Created at: {{this.profile.createdAt}}  </v-card-title>
     <!-- <v-card-title>Last login time: {{this.profile.loggedAt}}  </v-card-title> -->
-    
-    <v-card-text>
-    </v-card-text>
+    <v-divider></v-divider>
+    <v-btn class="delete-button">
+      Delete Account
+    </v-btn>
 
 
 
@@ -88,7 +93,7 @@ export default ({
 
         const user = auth.currentUser;
         updateProfile(auth.currentUser, {
-        displayName: this.profile.name, photoURL: "https://cdn.vuetifyjs.com/images/cards/cooking.png"
+        displayName: this.profile.name, photoURL: this.profile.image
         }).then(() => {
         console.log("updated")
         }).catch((error) => {
@@ -132,4 +137,9 @@ export default ({
 /* .whole-page {
   padding-bottom: 200px;
 } */
+.delete-button
+{
+  color: red;
+  background-color: red;
+}
 </style>
