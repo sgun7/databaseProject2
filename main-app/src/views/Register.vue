@@ -11,6 +11,27 @@
           <input type="password" v-model="password" placeholder="password">
         </div>
         <v-btn type="submit" elevation="7">Submit</v-btn>
+        <v-snackbar
+          v-model="snackbar"
+          :multi-line="multiLine"
+          :timeout="timeout"
+          absolute
+          top
+          right
+        >
+          {{ text }}
+
+            <template v-slot:action="{ attrs }">
+              <v-btn
+              color="red"
+              text
+              v-bind="attrs"
+              @click="snackbar = false"
+              >
+              Close
+            </v-btn>
+          </template>
+        </v-snackbar>
     </form>
   </div>
   </v-app>
@@ -23,19 +44,33 @@ export default ({
         async pressed()
         {
           try {
-            const user = await firebase.auth().createUserWithEmailAndPassword(this.email, this.password);
-            console.log(user);
-            this.$router.replace({name: "data"});  //Can now access this page
+            const user = await firebase.auth().createUserWithEmailAndPassword(this.email, this.password).ContinueWith(task => {
+              if(task.isSuccessful())
+              {
+                  this.snackbar = true;
+                  console.log(user);
+                  this.$router.replace({name: "data"});  //Can now access this page
+              }
+              else
+              {
+                this.snackbar = false;
+              }
+            });
           } catch (err) { 
+              this.snackbar = false;
               console.log(err)
           }
-        }
+        },
     },
     data() {
         return {
             email: "",
             password: '',
-            error: ''
+            error: '',
+            multiLine: true,
+            snackbar: false,
+            text: `Welcome!`,
+            timeout: 5000,
         }
     }
 })
