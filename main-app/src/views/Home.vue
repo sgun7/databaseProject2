@@ -18,15 +18,21 @@
   </v-carousel>
   </div>
   <div class="cards">
-    <v-container fill-height fluid>
-      <v-row align="center" justify="center">
-        <first-card-home></first-card-home>
-      </v-row>
-      <v-row><br/></v-row>
-      <v-row align="center" justify="center">
-        <second-card-home></second-card-home>
-      </v-row>
-    </v-container>
+    <v-layout align-center column fill-height>
+      <v-container fill-height grid-list-md text-xs-center>
+        <v-layout column>
+          <v-flex xs6 order-lg2>
+            <first-card-home></first-card-home>
+          </v-flex>
+        </v-layout>
+
+        <v-layout column>
+          <v-flex xs6 order-lg2>
+            <second-card-home></second-card-home>
+          </v-flex>
+        </v-layout>
+      </v-container>
+    </v-layout>
   </div>
 </div>
 </template>
