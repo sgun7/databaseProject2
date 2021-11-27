@@ -44,18 +44,10 @@ export default ({
         async pressed()
         {
           try {
-            const user = await firebase.auth().createUserWithEmailAndPassword(this.email, this.password).ContinueWith(task => {
-              if(task.isSuccessful())
-              {
-                  this.snackbar = true;
-                  console.log(user);
-                  this.$router.replace({name: "data"});  //Can now access this page
-              }
-              else
-              {
-                this.snackbar = false;
-              }
-            });
+            const user = await firebase.auth().createUserWithEmailAndPassword(this.email, this.password);
+            this.snackbar = true
+            console.log(user)
+            this.$router.replace({name: "data"});  //Can now access this page
           } catch (err) { 
               this.snackbar = false;
               console.log(err)

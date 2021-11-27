@@ -20,9 +20,7 @@
         <router-link to="/about" style="text-decoration: none; color: white;">About</router-link> | | | |
         <router-link to="/register" style="text-decoration: none; color: white;">Register</router-link> | | | |
         <router-link to="/login" style="text-decoration: none; color: white;">Login</router-link> | | | |
-        <router-link to="/secret" style="text-decoration: none; color: white;">Secret</router-link> | | | |
         <router-link to="/data" style="text-decoration: none; color: white;">Data</router-link> | | | |
-        <router-link to="/moreinfo" style="text-decoration: none; color: white;">More Info</router-link> | | | |
         <span v-if="loggedIn">
           <router-link to="/admin" style="text-decoration: none; color: white;">User Page</router-link> | | | |
         </span>

@@ -27,18 +27,28 @@
           <td>{{row.item.country}}</td>
           <td>{{row.item.date}}</td>
           <td>{{row.item.cases}}</td>
-          <span v-if="loggedIn">
-            <td>
-                  <v-btn class="mx-2" fab dark small color="pink" @click="onButtonClickDelete(row.item)">
-                      <v-icon dark>mdi-delete</v-icon>
-                  </v-btn>
-            </td>
-          </span>
         </tr>
       </template>
     </v-data-table>
     </v-simple-table>
   </v-card>
+  <v-divider></v-divider>
+    <v-simple-table dark>
+    <v-data-table
+        :headers="newHeaders"
+        :items="newTable"
+        :items-per-page="5"
+        class="elevation-1"  
+    >
+    <template v-slot:item="row">
+        <tr>
+            <td>{{row.item.country}}</td>
+            <td>{{row.item.date}}</td>
+        </tr>
+      </template>
+    </v-data-table>
+    </v-simple-table>
+
 
   <div class="container">
     <div class="row mt-5" v-if="arrPositive.length > 0">
@@ -51,7 +61,7 @@
 </div>
 </template>
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 import moment from 'moment'
 import FirstGraph from '../components/FirstGraph.vue'
 import firebase from 'firebase/compat/app';
@@ -64,6 +74,7 @@ export default{
     props:['items'],
         data () {
       return {
+        newTable: [],
         posts: [],
         search: '',
         sortBy: 'date',
@@ -77,6 +88,13 @@ export default{
           },
           { text: 'Date', value: 'date' },
           { text: 'Cases', value: 'cases' },
+        ],
+        newHeaders: [
+          {
+            text: 'Cities',
+            value: 'city',
+          },
+          { text: 'Vaccination Status', value: 'vaccination' },
         ],
         chosenCountries:[],
         countries: [
@@ -163,19 +181,52 @@ export default{
         let response = await fetch(this.$api_url);
         this.posts = await response.json();
         await this.getSpecificCountry();
-        const { data } = await axios.get(this.$api_url)
-        // const {data} = this.countries;
-        console.log("main data", data);
+        if(this.items === "India")
+        {
+          console.log("Running");
+          let newResponse = await fetch("http://b120-24-95-52-158.ngrok.io/datacityIndia");
+          this.newTable = await newResponse.json();
+          console.log("new table", this.newTable)
+        }
+        if(this.items === "Afgh")
+        {
+          console.log("Running 2");
+          let newResponse = await fetch("https://b120-24-95-52-158.ngrok.io/datacityAfgh");
+          this.newTable = await newResponse.json();
+          console.log("new table", this.newTable)
+        }
+        if(this.items === "Germany")
+        {
+          let newResponse = await fetch("https://0136-2603-6010-960b-4600-74e3-40fa-15a9-d892.ngrok.io/datacityGermany");
+          this.newTable = await newResponse.json();
+          console.log("new table", this.newTable)
+        }
+        
+        // const { data } = await axios.get(this.$api_url)
+        //const [data] = this.countries;
+        //console.log("main data", data);
 
-        data.forEach(d => {
-          const date = moment(d.date, "M/DD/YY").format("MM/DD");
+        // data.forEach(d => {
+        //   const date = moment(d.date, "M/DD/YY").format("MM/DD");
 
-          const {
+        //   const {
+        //       cases,
+        //   } = d
+
+        //   this.arrPositive.push({date, total: cases});
+        // })
+
+        for(var i = 0; i < this.chosenCountries.length; i++) {
+          var obj = this.chosenCountries[i];
+
+            const date = moment(obj.date, "M/DD/YY").format("MM/DD/YY");
+            const {
               cases,
-          } = d
+            } = obj
+            this.arrPositive.push({date, total: cases});
 
-          this.arrPositive.push({date, total: cases});
-        })
+        }
+        console.log(this.arrPositivearrPositive)
       
       } catch (error) {
         console.log(error);
@@ -191,7 +242,16 @@ export default{
         onButtonClickDelete(item)
         {
           console.log("Clicked item " + item.cases) 
-        }
+        },
+        // async getSecondTable()
+        // {
+        //     if(this.items === "India")
+        //     {
+        //       let response = await fetch("http://fe5b-2603-6010-960b-4600-166-1f3-323c-e540.ngrok.io/datacityIndia");
+        //       this.newTable = await response.json();
+        //       console.log("api", this.newTable);
+        //     }
+        // }
         // search(arr, s){
         //     var matches = [], i, key;
 

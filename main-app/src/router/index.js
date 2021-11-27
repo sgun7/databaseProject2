@@ -52,13 +52,14 @@ const routes = [
     path: '/data',
     name: 'data',
     component: Data,
-    // meta: {requiresAuth: true},//Requires the sign in to access this webpage,
+    meta: {requiresAuth: true},//Requires the sign in to access this webpage,
     props: true
   },
   {
     path: '/moreinfo',
     name: 'moreinfo',
     component: MoreInfo,
+    meta: {requiresAuth: true},//Requires the sign in to access this webpage,
     props: true
   },
   {
