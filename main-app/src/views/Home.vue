@@ -18,9 +18,20 @@
   </v-carousel>
   </div>
   <div class="cards">
-    <v-layout row wrap>
-      <first-card-home></first-card-home>
-      <second-card-home></second-card-home>
+    <v-layout align-center column fill-height>
+      <v-container fill-height grid-list-md text-xs-center>
+        <v-layout column>
+          <v-flex xs6 order-lg2>
+            <first-card-home></first-card-home>
+          </v-flex>
+        </v-layout>
+
+        <v-layout column>
+          <v-flex xs6 order-lg2>
+            <second-card-home></second-card-home>
+          </v-flex>
+        </v-layout>
+      </v-container>
     </v-layout>
   </div>
 </div>
@@ -32,16 +43,13 @@
       return {
         items: [
           {
-            src: 'https://picsum.photos/id/119/3264/2176',
+            src: 'https://dph.georgia.gov/sites/dph.georgia.gov/files/styles/3_2_2106px_x_1404px/public/2021-04/GettyImages-1210455332.jpg?h=32b23554&itok=hXoJsD8u',
           },
           {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+            src: 'https://cloudfront-us-east-2.images.arcpublishing.com/reuters/JVIS5YJXHVI6NEMZLLB3WKMZ54.jpg',
           },
           {
-            src: 'https://picsum.photos/id/180/3264/2176',
-          },
-          {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+            src: 'https://scitechdaily.com/images/COVID-19-Coronavirus-Map-March-19.jpg',
           },
         ],
       }

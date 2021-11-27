@@ -28,7 +28,7 @@
     </div>
   </nav>
     <router-view/>
-    <bottom-footer style="position:fixed; bottom:0;"></bottom-footer>
+    <bottom-footer></bottom-footer>
   </div>
 </template>
 

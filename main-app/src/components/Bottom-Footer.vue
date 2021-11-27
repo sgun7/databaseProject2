@@ -1,23 +1,30 @@
 <template>
-    <div id="wrapper">
-        <p style="color:white">
-            <b>Group 5: Code Hunters</b><br>
-                Luke Rogers - Captain<br>
-                Stephan Gunawardana<br>
-                Nikhil Khandelwal
-        </p>
+    <div id="footer">
+        <v-footer
+            app
+            bottom
+            fixed
+            dark
+            padless
+        >
+            <v-card
+                class="flex"
+                flat
+                tile
+            >
+                <v-card-text class="py-2 white--text text-center">
+                    <strong>Group 5: Code Hunters</strong>
+                </v-card-text>
+                <v-card-text class="py-2 white--text text-center">
+                    Luke Rogers<br/>
+                    Stephan Gunawardana<br/>
+                    Nikhil Khandelwal
+                </v-card-text>
+            </v-card>
+        </v-footer>
     </div>
 </template>
 <script>
-export default {
-};
+    export default {
+    };
 </script>
-<style>
-#wrapper {
-  margin: 0;
-  padding: 0px 0px;
-  /* width: 100%; */
-  background-color: #212529;
-}
-
-</style>
