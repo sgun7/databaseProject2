@@ -1,6 +1,7 @@
 <template>
   <div>
     <top-header></top-header>
+    <div class="mainpage">
     Login
     <form @submit.prevent="pressed">
         <div>
@@ -12,6 +13,7 @@
       <v-btn type="submit" elevation="7">Login</v-btn>
     </form>
     <div class="error" v-if="error">{{newErrorMessage}}</div>
+  </div>
   </div>
 </template>
 <script>
@@ -61,5 +63,10 @@ button {
 }
 .error {
   color: red;
+}
+.mainpage
+{
+  position: relative;
+  top:200px;
 }
 </style>

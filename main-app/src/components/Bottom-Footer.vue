@@ -3,7 +3,6 @@
         <v-footer
             app
             bottom
-            fixed
             dark
             padless
         >

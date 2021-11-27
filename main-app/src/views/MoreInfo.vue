@@ -184,19 +184,19 @@ export default{
         if(this.items === "Agfh")
         {
           console.log("Running 2");
-          let newResponse = await fetch("https://b120-24-95-52-158.ngrok.io/datacityAfgh");
+          let newResponse = await fetch("https://deed-2603-6010-960b-4600-f555-524b-f6e2-5010.ngrok.io/datacityAfgh");
           this.newTable = await newResponse.json();
           console.log("new table", this.newTable)
         }
         else if(this.items === "Germany")
         {
-          let newResponse = await fetch("https://b120-24-95-52-158.ngrok.io/datacityGermany");
+          let newResponse = await fetch("https://deed-2603-6010-960b-4600-f555-524b-f6e2-5010.ngrok.io/datacityGermany");
           this.newTable = await newResponse.json();
           console.log("new table", this.newTable)
         }
         else if(this.items === "India")
         {
-          let newResponse = await fetch("https://b120-24-95-52-158.ngrok.io/datacityIndia");
+          let newResponse = await fetch("https://deed-2603-6010-960b-4600-f555-524b-f6e2-5010.ngrok.io/datacityIndia");
           this.newTable = await newResponse.json();
           console.log("new table", this.newTable)
         }
@@ -279,5 +279,6 @@ export default{
 <style scoped>
 .container {
   width: 500px;
+  padding-bottom: 200px;
 }
 </style>>

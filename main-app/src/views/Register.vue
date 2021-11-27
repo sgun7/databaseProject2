@@ -1,6 +1,5 @@
 <template>
-<v-app>
-  <div>
+  <div class="mainpage">
     <div v-if="error" class="error">{{error.message}}</div>
     <form @submit.prevent="pressed">
         Register
@@ -34,7 +33,6 @@
         </v-snackbar>
     </form>
   </div>
-  </v-app>
 </template>
 <script>
 import firebase from 'firebase/compat/app';
@@ -68,7 +66,7 @@ export default ({
 })
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .error {
   color: red;
   font-size: 18px;
@@ -83,5 +81,10 @@ button {
   width: 400px;
   height: 75px;
   font-size: 100%;
+}
+.mainpage
+{
+  position: relative;
+  top:200px;
 }
 </style>
