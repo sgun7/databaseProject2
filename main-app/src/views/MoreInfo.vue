@@ -61,7 +61,7 @@
 </div>
 </template>
 <script>
-// import axios from 'axios'
+
 import moment from 'moment'
 import FirstGraph from '../components/FirstGraph.vue'
 import firebase from 'firebase/compat/app';
@@ -181,23 +181,22 @@ export default{
         let response = await fetch(this.$api_url);
         this.posts = await response.json();
         await this.getSpecificCountry();
-        if(this.items === "India")
-        {
-          console.log("Running");
-          let newResponse = await fetch("http://b120-24-95-52-158.ngrok.io/datacityIndia");
-          this.newTable = await newResponse.json();
-          console.log("new table", this.newTable)
-        }
-        if(this.items === "Afgh")
+        if(this.items === "Agfh")
         {
           console.log("Running 2");
           let newResponse = await fetch("https://b120-24-95-52-158.ngrok.io/datacityAfgh");
           this.newTable = await newResponse.json();
           console.log("new table", this.newTable)
         }
-        if(this.items === "Germany")
+        else if(this.items === "Germany")
         {
-          let newResponse = await fetch("https://0136-2603-6010-960b-4600-74e3-40fa-15a9-d892.ngrok.io/datacityGermany");
+          let newResponse = await fetch("https://b120-24-95-52-158.ngrok.io/datacityGermany");
+          this.newTable = await newResponse.json();
+          console.log("new table", this.newTable)
+        }
+        else if(this.items === "India")
+        {
+          let newResponse = await fetch("https://b120-24-95-52-158.ngrok.io/datacityIndia");
           this.newTable = await newResponse.json();
           console.log("new table", this.newTable)
         }
@@ -236,7 +235,6 @@ export default{
             let result = this.posts.filter(obj => {
             return obj.country === this.items
             })
-            console.log("running")
             this.chosenCountries = result;
         },
         onButtonClickDelete(item)

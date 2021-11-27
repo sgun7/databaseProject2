@@ -7,6 +7,7 @@
       v-for="(item,i) in noDuplicates"
       :key="i"
       :src="item.country"
+      height=100%
       >
       <v-row
           class="fill-height"
@@ -147,6 +148,6 @@
 <style scoped>
     .caro{      
         font-size: 200px;
-        background-color:indianred
+        background-color:indianred;
     }
 </style>
