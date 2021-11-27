@@ -16,7 +16,7 @@ export default {
 #wrapper {
   margin: 0;
   padding: 0px 0px;
-  width: 100%;
+  /* width: 100%; */
   background-color: #212529;
 }
 

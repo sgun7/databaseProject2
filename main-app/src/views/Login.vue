@@ -11,7 +11,7 @@
       </div>
       <v-btn type="submit" elevation="7">Login</v-btn>
     </form>
-    <div class="error" v-if="error">{{error.message}}</div>
+    <div class="error" v-if="error">{{newErrorMessage}}</div>
   </div>
 </template>
 <script>
@@ -25,7 +25,8 @@ export default {
         return {
             email: "",
             password: '',
-            error: ''
+            error: '',
+            newErrorMessage: "Invalid Credentials!"
         }
   },
   methods: {
@@ -33,7 +34,7 @@ export default {
       try {
         const val = await firebase.auth().signInWithEmailAndPassword(this.email,this.password);
         console.log(val);
-        this.$router.replace({name: "data"})
+        this.$router.replace({name: "Home"})
       } catch (err) {
         console.log(err)
         this.error = err;

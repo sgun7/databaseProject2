@@ -28,7 +28,7 @@ Vue.use(BootstrapVue)
 library.add(faUserSecret)
 library.add(faSpinner)
 
-Vue.prototype.$api_url = "https://87f0-2603-6010-960b-4600-9d72-5ff8-eff9-e45b.ngrok.io/data";
+Vue.prototype.$api_url = "http://b120-24-95-52-158.ngrok.io/data";
 Vue.prototype.$axios = axios;
 Vue.config.productionTip = false
 Vue.component('country-table', CountryTable)

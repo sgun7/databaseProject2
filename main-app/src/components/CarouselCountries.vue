@@ -104,7 +104,7 @@
           let obj = {};
 
           let data = this.posts;
-          console.log(data);
+          //console.log(data);
 
           data.forEach(d => {
             obj[d.country] = obj[d.country] || 0;
