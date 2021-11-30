@@ -42,7 +42,7 @@
     >
     <template v-slot:item="row">
         <tr>
-            <td>{{row.item.country}}</td>
+            <td>{{row.item.cases}}</td>
             <td>{{row.item.date}}</td>
         </tr>
       </template>
@@ -94,7 +94,7 @@ export default{
             text: 'Cities',
             value: 'city',
           },
-          { text: 'Vaccination Status', value: 'vaccination' },
+          { text: 'Vaccination Travel Status', value: 'vaccination' },
         ],
         chosenCountries:[],
         countries: [
@@ -181,22 +181,29 @@ export default{
         let response = await fetch(this.$api_url);
         this.posts = await response.json();
         await this.getSpecificCountry();
-        if(this.items === "Agfh")
+        console.log("items", this.items)
+        if(this.items === "Afghanistan")
         {
           console.log("Running 2");
-          let newResponse = await fetch("https://deed-2603-6010-960b-4600-f555-524b-f6e2-5010.ngrok.io/datacityAfgh");
+          let newResponse = await fetch("http://localhost:8081/datacityAfgh");
           this.newTable = await newResponse.json();
           console.log("new table", this.newTable)
         }
         else if(this.items === "Germany")
         {
-          let newResponse = await fetch("https://deed-2603-6010-960b-4600-f555-524b-f6e2-5010.ngrok.io/datacityGermany");
+          let newResponse = await fetch("http://localhost:8081/datacityGermany");
           this.newTable = await newResponse.json();
           console.log("new table", this.newTable)
         }
         else if(this.items === "India")
         {
-          let newResponse = await fetch("https://deed-2603-6010-960b-4600-f555-524b-f6e2-5010.ngrok.io/datacityIndia");
+          let newResponse = await fetch("http://localhost:8081/datacityIndia");
+          this.newTable = await newResponse.json();
+          console.log("new table", this.newTable)
+        }
+        else if(this.items === "USA")
+        {
+          let newResponse = await fetch("http://localhost:8081/datacityUSA");
           this.newTable = await newResponse.json();
           console.log("new table", this.newTable)
         }
@@ -218,7 +225,7 @@ export default{
         for(var i = 0; i < this.chosenCountries.length; i++) {
           var obj = this.chosenCountries[i];
 
-            const date = moment(obj.date, "M/DD/YY").format("MM/DD/YY");
+            const date = moment(obj.date, "M/DD/YYYY").format("MM/DD/YYYY");
             const {
               cases,
             } = obj
